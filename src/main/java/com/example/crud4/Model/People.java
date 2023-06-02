@@ -9,14 +9,14 @@ import lombok.Data;
 @Entity
 @Data
 
-public class User {
+public class People {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     Long userId;
     String name;
     String email;
-    Integer phone;
+    String phone;
 
 
 }
