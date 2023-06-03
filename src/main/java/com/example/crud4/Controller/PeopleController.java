@@ -30,7 +30,10 @@ public class PeopleController {
         return peopleServiceImpl.addPeople(people);
     }
 
-
+    @PatchMapping("updatePeople/{id}")
+    public People updatePeople(@PathVariable Long id, @RequestBody People updatedPeople) {
+        return peopleServiceImpl.updatePeople(id, updatedPeople);
+    }
 
     @DeleteMapping("deletePeople/{id}")
     public String deletePeople(@PathVariable Long id){

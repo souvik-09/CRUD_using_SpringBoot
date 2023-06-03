@@ -29,7 +29,22 @@ public class PeopleServiceImpl {
         return peopleRepo.findById(id).get();
     }
 
-
+    public People updatePeople(Long id, People updatedPeople) {
+        People existingPeople = findPeopleById(id);
+        if (existingPeople != null) {
+            if (updatedPeople.getName() != null) {
+                existingPeople.setName(updatedPeople.getName());
+            }
+            if (updatedPeople.getEmail() != null) {
+                existingPeople.setEmail(updatedPeople.getEmail());
+            }
+            if (updatedPeople.getPhone() != null) {
+                existingPeople.setPhone(updatedPeople.getPhone());
+            }
+            return peopleRepo.save(existingPeople);
+        }
+        return null;
+    }
 
     public void deleteById(Long id){
         peopleRepo.deleteById(id);
